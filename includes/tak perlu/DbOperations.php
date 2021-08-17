@@ -18,12 +18,17 @@
         function createUser($username, $password, $email){
             $password = md5($password);
       
-            $stmt = $this->con->prepare("INSERT INTO 'users' ('id', 'username',
-                    'password', 'email') VALUES (NULL, ?, ?, ?);");
+         //   $stmt = $this->con->prepare("INSERT INTO 'users' ('id', 'username',
+          //          'password', 'email') VALUES (NULL, ?, ?, ?);");
          
-            $stmt->bind_param("sss",$username,$password,$email);
+        //    $stmt->bind_param("sss",$username,$password,$email);
+/*kita ubah sini */
+                $sql = "INSERT INTO users ('id', 'username', 'password', 'email') VALUES (NULL, ?, ?, ?)";          
 
-            if($stmt->execute()){
+/* sampai sini */
+    //        if($stmt->execute()){
+
+            if(mysqli_query($sql)){    
                 return true;
             }
             else{
